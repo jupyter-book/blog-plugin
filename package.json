@@ -1,6 +1,6 @@
 {
-  "name": "src",
-  "version": "1.0.0",
+  "name": "blog-posts",
+  "version": "1",
   "main": "index.mjs",
   "author": "",
   "type": "module",
