@@ -1,7 +1,6 @@
 # See docs at: https://mystmd.org/guide/frontmatter
 version: 1
 project:
-  title: JS Plugin
   plugins:
     - plugin.mjs
   toc:
@@ -12,5 +11,4 @@ project:
 site:
   template: book-theme
   options:
-    logo_text: Python Plugin
     folders: true
