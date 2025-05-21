@@ -3,12 +3,13 @@ name: Release
 on: 
   release:
     types: [published]
+
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  permissions:
-    contents: write
   build:
+    permissions:
+      contents: write
     name: Build Plugin
     runs-on: ubuntu-latest
     steps:
