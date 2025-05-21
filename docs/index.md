@@ -1,0 +1,5 @@
+# Blog Plugin
+
+:::{blog-posts}
+:::
+

@@ -36,19 +36,21 @@ jobs:
           node-version: 20.x
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12' 
+          python-version: "3.12"
       - name: Install MyST Markdown
         run: npm install -g mystmd
       - name: Build plugin
         run: |
           npm install
           npm run build
+          cp dist/plugin.mjs docs/
       - name: Build HTML Assets
         run: myst build --html
+        working-directory: docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./_build/html"
+          path: "./docs/_build/html"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

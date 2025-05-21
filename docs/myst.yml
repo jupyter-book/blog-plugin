@@ -3,9 +3,12 @@ version: 1
 project:
   title: JS Plugin
   plugins:
-    - dist/plugin.mjs
+    - plugin.mjs
   toc:
-    - file: content/index.md
+    - file: index.md
+    - title: Posts
+      children:
+        - pattern: posts/*.md
 site:
   template: book-theme
   options:
