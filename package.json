@@ -6,6 +6,7 @@
   "type": "module",
   "license": "ISC",
   "description": "",
+  "private": true,
   "devDependencies": {
     "@types/mdast": "^4.0.4",
     "esbuild": "0.25.4"
