@@ -1,6 +1,6 @@
 import { globSync } from "glob";
 import { readFileSync } from "node:fs";
-import { extname, basename } from "node:path";
+import { extname, basename, join } from "node:path";
 import { getFrontmatter } from "myst-transforms";
 import { validatePageFrontmatter } from "myst-frontmatter";
 import { fileError, fileWarn, RuleId } from "myst-common";
@@ -11,10 +11,17 @@ const blogPostsDirective: DirectiveSpec = {
   doc: "Display preview cards for documents.",
   options: {
     limit: { type: Number, doc: "Number of posts." },
+    path: { type: String, doc: "Path to posts." },
+    "default-title": { type: String, doc: "Default title if none given." },
   },
   run(data, vfile, ctx) {
-    const size = (data.options?.limit as number) ?? 3;
-    const paths = globSync("posts/*.md").sort().reverse(); // For now, string sort
+    const size = (data.options?.limit as number | undefined) ?? 3;
+    const searchPath = (data.options?.path as string | undefined) ?? "posts";
+    const defaultTitle =
+      (data.options?.["default-title"] as string | undefined) ??
+      "<Untitled Post>";
+
+    const paths = globSync(join(searchPath, "*.md")).sort().reverse(); // For now, string sort
     const nodes = paths.map((path) => {
       const ext = extname(path);
       const name = basename(path, ext);
@@ -60,8 +67,7 @@ const blogPostsDirective: DirectiveSpec = {
         children: [
           {
             type: "cardTitle",
-            children: ctx.parseMyst(frontmatter.title ?? "<Untitled Post>")
-              .children,
+            children: ctx.parseMyst(frontmatter.title ?? defaultTitle).children,
           },
           ...subtitleItems,
           ...descriptionItems,
