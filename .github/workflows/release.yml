@@ -1,13 +1,13 @@
 name: Release
 
-on:
-  push:
-    branches:
-      - main
-
+on: 
+  release:
+    types: [published]
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
+  permissions:
+    contents: write
   build:
     name: Build Plugin
     runs-on: ubuntu-latest
@@ -20,7 +20,7 @@ jobs:
         run: npm run build
       - name: Release
         uses: softprops/action-gh-release@v2
-        if: github.ref_type == 'tag'
         with:
+          tag: ${{ github.ref }}
           files: |
             dist/plugin.mjs
