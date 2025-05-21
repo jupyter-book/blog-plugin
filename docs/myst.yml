@@ -13,3 +13,4 @@ site:
   template: book-theme
   options:
     logo_text: Python Plugin
+    folders: true
