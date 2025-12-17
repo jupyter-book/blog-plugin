@@ -9,7 +9,7 @@ project:
     - file: index.md
     - title: Posts
       children:
-        - pattern: posts/*.md
+        - pattern: posts/**/*.md
 site:
   template: book-theme
   options:
