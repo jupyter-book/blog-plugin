@@ -2,6 +2,10 @@
 
 A MyST plugin load blog posts from a file system and display them as a listing.
 
+> [!NOTE]
+> This is an experimental plugin developed for prototyping and use at [blog.jupyterbook.org](https://blog.jupyterbook.org).
+> The API may change and we don't promise stability yet. Use at your own risk!
+
 ## Basic usage
 
 See the [documentation](https://jupyter-book.github.io/blog-plugin) for more usage.
