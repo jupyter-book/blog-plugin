@@ -15,6 +15,7 @@ See the [documentation](https://jupyter-book.github.io/blog-plugin) for more usa
 
 - `docs/` - project documentation, written as a MyST site
 - `src/` - plugin source-code
+- `tests/` - `vitest` testing infrastructure
 - `noxfile.py` - several commands that we use to automate docs preview and building
 - `github` - workflows to build and publish this plugin to GitHub Pages and make releases.
 
