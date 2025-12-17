@@ -8,7 +8,7 @@ nox.options.default_venv_backend = "uv|virtualenv"
 @nox.session(name="test")
 def test(session):
     """Run the test suite using vitest."""
-    session.run("npm", "install", external=True)
+    build_plugin(session)
     session.run("npm", "test", external=True)
 
 @nox.session(name="build")
