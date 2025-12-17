@@ -2,3 +2,5 @@
 /node_modules/
 /dist/
 /docs/plugin.mjs
+docs/_build
+__pycache__/

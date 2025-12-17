@@ -1,7 +1,7 @@
 {
   "name": "blog-posts",
   "version": "1",
-  "main": "index.mjs",
+  "main": "src/index.mjs",
   "author": "",
   "type": "module",
   "license": "ISC",
@@ -12,7 +12,7 @@
     "esbuild": "0.25.4"
   },
   "scripts": {
-    "build": "esbuild plugin.ts --bundle --outfile=dist/plugin.mjs --platform=node --format=esm"
+    "build": "esbuild src/plugin.ts --bundle --outfile=dist/plugin.mjs --platform=node --format=esm"
   },
   "dependencies": {
     "glob": "^11.0.2",

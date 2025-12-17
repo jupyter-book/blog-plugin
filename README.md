@@ -2,6 +2,15 @@
 
 A MyST plugin load blog posts from a file system and display them as a listing.
 
+## Basic usage
+
+See the [documentation](https://jupyter-book.github.io/blog-plugin) for more usage.
+
+```md
+:::{blog-posts}
+:::
+```
+
 ## Build the bundle
 
 The `esbuild` tool takes `plugin.ts` and its dependencies as inputs, and generates a `dist/plugin.mjs` bundle. This bundle can be directly loaded by MyST without requiring a build or install step.
