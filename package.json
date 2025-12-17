@@ -9,10 +9,14 @@
   "private": true,
   "devDependencies": {
     "@types/mdast": "^4.0.4",
-    "esbuild": "0.25.4"
+    "@types/node": "^22.10.5",
+    "esbuild": "0.25.4",
+    "vitest": "^2.1.8"
   },
   "scripts": {
-    "build": "esbuild src/plugin.ts --bundle --outfile=dist/plugin.mjs --platform=node --format=esm"
+    "build": "esbuild src/plugin.ts --bundle --outfile=dist/plugin.mjs --platform=node --format=esm",
+    "build:docs": "npm run build && cd docs && npx mystmd build --html",
+    "test": "npm run build:docs && vitest run"
   },
   "dependencies": {
     "glob": "^11.0.2",
