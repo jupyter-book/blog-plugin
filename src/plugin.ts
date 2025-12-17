@@ -11,7 +11,7 @@ const blogPostsDirective: DirectiveSpec = {
   doc: "Display preview cards for documents.",
   options: {
     limit: { type: Number, doc: "Number of posts." },
-    path: { type: String, doc: "Path to posts." },
+    path: { type: String, doc: "Path to posts. Supports glob patterns like 'posts/**/*.md' to include subfolders." },
     "default-title": { type: String, doc: "Default title if none given." },
   },
   run(data, vfile, ctx) {
@@ -21,7 +21,15 @@ const blogPostsDirective: DirectiveSpec = {
       (data.options?.["default-title"] as string | undefined) ??
       "<Untitled Post>";
 
-    const paths = globSync(join(searchPath, "*.md")).sort().reverse(); // For now, string sort
+    // Support glob patterns in the path parameter
+    // If the path contains glob patterns (*, ?, [, or **), use it directly
+    // Otherwise, append *.md to match all markdown files in that directory
+    const globPattern = /[*?\[]|\*\*/;
+    const searchPattern = globPattern.test(searchPath)
+      ? searchPath
+      : join(searchPath, "*.md");
+
+    const paths = globSync(searchPattern).sort().reverse(); // For now, string sort
     const nodes = paths.map((path) => {
       const ext = extname(path);
       const name = basename(path, ext);
