@@ -5,6 +5,7 @@ import nox
 # Use uv for faster installs
 nox.options.default_venv_backend = "uv|virtualenv"
 
+@nox.session(name="build")
 def build_plugin(session):
     """Build the blog plugin using esbuild."""
     session.run("npm", "install", external=True)
