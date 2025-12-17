@@ -3,6 +3,8 @@ version: 1
 project:
   plugins:
     - plugin.mjs
+    # Demo plugin
+    - https://raw.githubusercontent.com/jupyter-book/myst-plugins/main/plugins/demo/src/index.mjs
   toc:
     - file: index.md
     - title: Posts
