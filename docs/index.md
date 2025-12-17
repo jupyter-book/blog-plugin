@@ -82,3 +82,33 @@ Or reverse the date:
 ```
 
 Any frontmatter field can be used as a column!
+
+## Sorting posts
+
+You can customize sorting with the `:sort:` option. This takes a form like:
+
+```
+:::{blog-posts]
+:sort: [column]-[asc/desc]
+:::
+```
+
+Where `[column]` is a field in each post's YAML metadata, and `asc/desc` corresponds to alphanumeric sort ascending or descending. Omitting the `-[asc/desc]` will default to `-asc`. For example:
+
+```{myst:demo}
+:::{blog-posts}
+:sort: title
+:kind: table
+:path: posts/**/*.md
+:::
+```
+
+```{myst:demo}
+:::{blog-posts}
+:sort: title-desc
+:kind: table
+:path: posts/**/*.md
+:::
+```
+
+Posts with missing values for the sort field are placed at the end.
