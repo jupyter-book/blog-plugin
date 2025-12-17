@@ -2,9 +2,18 @@
 
 ## Basic usage
 
-By default, the plugin looks for blog posts in a `posts` directory:
+First, ensure your blog posts are defined in the table of contents of your `myst.yml` file:
+
+```yaml
+project:
+  toc:
+    - pattern: posts/**/*.md
+```
+
+List the blog posts in a folder with the following directive:
 
 ```{myst:demo}
+% By default, the plugin looks for markdown files in a `posts` directory
 :::{blog-posts}
 :::
 ```
@@ -36,3 +45,40 @@ You can limit the number of posts displayed:
 :path: posts/**/*.md
 :::
 ```
+
+## Table view
+
+For blogs with many posts, you can use a more compact table layout instead of cards:
+
+```{myst:demo}
+:::{blog-posts}
+:kind: table
+:path: posts/**/*.md
+:::
+```
+
+By default, the table displays `title` and `date` columns. The title column is automatically linked to the post.
+
+## Custom table columns
+
+You can customize which frontmatter fields to display as columns using the `:table-columns:` option:
+
+```{myst:demo}
+:::{blog-posts}
+:kind: table
+:table-columns: title, date, subtitle
+:path: posts/**/*.md
+:::
+```
+
+Or reverse the date:
+
+```{myst:demo}
+:::{blog-posts}
+:kind: table
+:table-columns: date, title, subtitle
+:path: posts/**/*.md
+:::
+```
+
+Any frontmatter field can be used as a column!
