@@ -11,6 +11,13 @@ See the [documentation](https://jupyter-book.github.io/blog-plugin) for more usa
 :::
 ```
 
+## Repository structure
+
+- `docs/` - project documentation, written as a MyST site
+- `src/` - plugin source-code
+- `noxfile.py` - several commands that we use to automate docs preview and building
+- `github` - workflows to build and publish this plugin to GitHub Pages and make releases.
+
 ## Build the bundle
 
 The `esbuild` tool takes `plugin.ts` and its dependencies as inputs, and generates a `dist/plugin.mjs` bundle. This bundle can be directly loaded by MyST without requiring a build or install step.
