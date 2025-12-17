@@ -30,6 +30,7 @@ export function renderTable(posts: any[], columns: string[]) {
 
   return [{
     type: "table",
+    class: "blog-posts",
     children: [headerRow, ...dataRows],
   }];
 }

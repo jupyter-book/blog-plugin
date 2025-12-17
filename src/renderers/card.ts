@@ -22,6 +22,7 @@ export function renderCards(posts: any[], ctx: any) {
 
     return {
       type: "card",
+      class: "blog-posts",
       children: [
         {
           type: "cardTitle",

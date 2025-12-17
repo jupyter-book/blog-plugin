@@ -5,6 +5,12 @@ import nox
 # Use uv for faster installs
 nox.options.default_venv_backend = "uv|virtualenv"
 
+@nox.session(name="test")
+def test(session):
+    """Run the test suite using vitest."""
+    build_plugin(session)
+    session.run("npm", "test", external=True)
+
 @nox.session(name="build")
 def build_plugin(session):
     """Build the blog plugin using esbuild."""
